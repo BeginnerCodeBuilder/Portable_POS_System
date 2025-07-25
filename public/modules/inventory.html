@@ -1,0 +1,155 @@
+<div class="inventory-container">
+  <!-- 🔹 Left Tile: Item Groups -->
+  <div class="inventory-left-tile">
+    <h2>📦 Item Groups</h2>
+    <div id="group-list" class="group-list">
+      <!-- Groups will be rendered here -->
+    </div>
+    <button id="btn-add-group" class="medium-button">➕ Add Group</button>
+  </div>
+
+  <!-- 🔹 Right Tile: Item List Table -->
+  <div class="inventory-right-tile">
+    <h1>📋 Inventory Management</h1>
+
+    <!-- Controls -->
+    <div class="table-controls">
+      <input type="text" id="search-item" placeholder="Search items..." class="short-input" />
+      <select id="filter-group" class="short-input"></select>
+      <select id="filter-status" class="short-input">
+  <option value="All">All Status</option>
+  <option value="Active">Active</option>
+  <option value="Suspended">Suspended</option>
+  <option value="Archived">Archived</option>
+</select>
+
+      <select id="entries-per-page" class="short-input">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+      </select>
+      <button id="btn-add-item" class="short-button">➕ Add Item</button> <!-- ✅ Added -->
+      <button id="btn-import-items" class="short-button">📥 Import</button>
+      <button id="btn-export-items" class="short-button">📤 Export</button>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Unit Price (₱)</th>
+            <th>Current Stock</th>
+            <th>Reorder Level</th>
+            <th>Item Group</th>
+            <th>Barcode</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="item-table">
+          <!-- Items will be rendered here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination-controls"></div>
+  </div>
+</div>
+
+<!-- 🔹 Modal: Item Form -->
+<div id="item-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>📝 Add / Edit Item</h2>
+    <form id="item-form">
+      <label>Item Group (Group ID)
+        <select id="item-group-id" required></select>
+      </label>
+      <label>Item ID (Auto)
+        <input type="text" id="item-id" class="short-input" readonly />
+      </label>
+      <label>Item Name
+        <input type="text" id="item-name" class="medium-input" required />
+      </label>
+      <label>Description
+        <textarea id="item-desc" class="large-input" rows="2"></textarea>
+      </label>
+      <label>Unit Price (₱)
+        <input type="number" id="item-price" class="short-input" step="0.01" min="0" required />
+      </label>
+      <label>Current Stock
+        <input type="number" id="item-stock" class="short-input" min="0" required />
+      </label>
+      <label>Reorder Level
+        <input type="number" id="item-reorder" class="short-input" min="0" required />
+      </label>
+      <label>Barcode
+        <input type="text" id="item-barcode" class="medium-input" />
+      </label>
+      <label>Status
+  <select id="item-status" class="short-input">
+    <option value="Active">Active</option>
+    <option value="Suspended">Suspended</option>
+    <option value="Archived">Archived</option>
+  </select>
+</label>
+
+      <div class="modal-actions">
+        <button type="button" id="btn-save-item" class="short-button">💾 Save</button>
+        <button type="button" id="btn-cancel-item" class="short-button">❌ Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 🔹 Modal: Group Form -->
+<div id="group-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>📁 Add / Edit Item Group</h2>
+    <form id="group-form">
+      <label>Group ID (2-digit)
+        <input type="text" id="group-id" class="short-input" maxlength="2" required />
+      </label>
+      <label>Group Name
+        <input type="text" id="group-name" class="medium-input" required />
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" id="btn-save-group" class="short-button">💾 Save</button>
+        <button type="button" id="btn-cancel-group" class="short-button">❌ Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 🔹 Modal: Import Items -->
+<div id="import-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>📥 Import Items</h2>
+    <p><strong>Required Columns (in order):</strong></p>
+    <ul>
+      <li>Item Group ID (2-digit)</li>
+      <li>Item Name</li>
+      <li>Description (optional)</li>
+      <li>Unit Price</li>
+      <li>Current Stock</li>
+      <li>Reorder Level</li>
+      <li>Barcode (optional)</li>
+    </ul>
+
+    <div class="dropzone fancy-dropzone" id="import-dropzone">
+      <p>📂 Drop or upload file here</p>
+      <input type="file" id="import-file" accept=".csv" />
+    </div>
+
+    <div class="modal-actions">
+      <button id="btn-confirm-import" class="short-button">📥 Import</button>
+      <button id="btn-cancel-import" class="short-button">Cancel</button>
+    </div>
+  </div>
+</div>
+

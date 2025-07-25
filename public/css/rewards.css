@@ -1,0 +1,152 @@
+.rewards-container {
+  width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rewards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversion-rate-display {
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-tile {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 0 0 40%;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.table-tile {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  flex: 0 0 60%;
+  overflow-y: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+input, select, textarea, button {
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.short-input {
+  width: 150px;
+  padding: 0.4rem;
+}
+
+.medium-input {
+  width: 250px;
+  padding: 0.4rem;
+}
+
+.large-input {
+  width: 1000px;
+  padding: 0.6rem;
+}
+
+.short-button {
+  width: 100px;
+  padding: 0.4rem;
+}
+
+.medium-button {
+  width: 200px;
+  padding: 0.5rem;
+}
+
+.inline-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.side-by-side {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+button {
+  cursor: pointer;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #7dd3fc;
+}
+
+.table-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.rewards-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.rewards-table th,
+.rewards-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.rewards-table th {
+  background-color: rgba(255,255,255,0.1);
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,128 @@
+<!-- File: public/pages/customers.html -->
+<div class="module-container">
+  <div class="controls-row">
+    <input type="text" id="searchInput" placeholder="Search customers..." />
+    <select id="searchMode">
+      <option value="Any">Any Field</option>
+      <option value="Customer ID">Customer ID</option>
+      <option value="Name">Name</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Address">Address</option>
+    </select>
+
+    <!-- Filter checkboxes + dropdowns -->
+    <label class="filter-checkbox">
+      <input type="checkbox" id="typeFilterCheckbox" />
+      Customer Type
+    </label>
+    <select id="typeFilterSelect" disabled>
+      <option value="">— Select Type —</option>
+      <option value="Regular">Regular</option>
+      <option value="VIP">VIP</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Wholesaler">Wholesaler</option>
+    </select>
+
+    <label class="filter-checkbox">
+      <input type="checkbox" id="statusFilterCheckbox" />
+      Status
+    </label>
+    <select id="statusFilterSelect" disabled>
+      <option value="">— Select Status —</option>
+      <option value="Active">Active</option>
+      <option value="Suspended">Suspended</option>
+    </select>
+
+    <button id="applyFiltersBtn">Apply Filters</button>
+    <button id="importCustomersBtn">Import</button>
+    <button id="exportCustomersBtn">Export</button>
+    <button id="addCustomerBtn">+ Add Customer</button>
+  </div>
+
+  <div class="table-container">
+    <table id="customersTable">
+      <thead>
+        <tr>
+          <th>Customer ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Active Points</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="noDataMessage" class="no-data hidden">No customers found.</div>
+  </div>
+</div>
+
+<!-- 🧾 Import Feedback Modal -->
+<div id="import-feedback-modal" class="modal hidden">
+  <div class="modal-content small-modal">
+    <h3>📥 Import Summary</h3>
+    <p>Imported: <strong id="imported-count">0</strong></p>
+    <p>Updated: <strong id="updated-count">0</strong></p>
+    <p>Skipped: <strong id="skipped-count">0</strong></p>
+    <div class="modal-actions">
+      <button id="close-import-feedback">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🆕 Add Customer Modal -->
+<div id="customer-modal" class="modal hidden">
+  <div class="modal-content small-modal">
+    <h3>➕ Add Customer</h3>
+    <label>First Name <span class="required">*</span>
+      <input type="text" id="add-first-name" />
+    </label>
+    <label>Last Name
+      <input type="text" id="add-last-name" />
+    </label>
+    <label>Email
+      <input type="email" id="add-email" />
+    </label>
+    <label>Phone <span class="required">*</span>
+      <input type="text" id="add-phone" />
+    </label>
+    <label>Address <span class="required">*</span>
+      <textarea id="add-address" rows="2"></textarea>
+    </label>
+    <label>Customer Type
+      <select id="add-type">
+        <option value="Regular">Regular</option>
+        <option value="VIP">VIP</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Wholesaler">Wholesaler</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="add-status">
+        <option value="Active">Active</option>
+        <option value="Suspended">Suspended</option>
+      </select>
+    </label>
+
+    <div class="modal-actions">
+      <button class="primary-button" id="btn-cancel-customer">Cancel</button>
+      <button class="primary-button" id="btn-save-customer">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🔍 Slide-up Profile Modal -->
+<div id="customer-profile-modal" class="slideup-modal">
+  <div class="modal-header">
+    <h2></h2>
+    <button class="close-button">&times;</button>
+  </div>
+  <div class="modal-content"></div>
+  <div style="padding: 1rem;">
+    <button class="primary-button">Save</button>
+  </div>
+</div>
