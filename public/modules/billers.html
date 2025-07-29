@@ -1,0 +1,75 @@
+<div class="billers-container">
+  <div class="header">
+    <h1>Maintenance Companies</h1>
+    <div class="header-actions">
+      <button id="addBillerBtn" class="primary-button">➕ Add Biller</button>
+      <button id="importBillersBtn" class="secondary-button">📥 Import</button>
+      <button id="exportBillersBtn" class="secondary-button">📤 Export</button>
+    </div>
+  </div>
+
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search by Company, Biller ID, Contact, Email...">
+    <button id="applyFiltersBtn" class="primary-button">Search</button>
+  </div>
+
+  <div id="importFileBasket" class="hidden file-basket"></div>
+
+  <table id="billersTable" class="data-table">
+    <thead>
+      <tr>
+        <th>Biller ID</th>
+        <th>Company Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Primary Contact</th>
+        <th>Primary Mobile</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p id="noDataMessage" class="hidden">No billers found.</p>
+</div>
+
+<!-- ➕ Add Biller Modal -->
+<div id="biller-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Add Biller</h2>
+    <div class="modal-fields">
+      <label>Company Name *</label>
+      <input type="text" id="biller-company-name" required>
+
+      <label>Phone Number *</label>
+      <input type="text" id="biller-phone" required>
+
+      <label>Email</label>
+      <input type="email" id="biller-email">
+
+      <label>Address *</label>
+      <textarea id="biller-address" rows="2" required></textarea>
+
+      <label>Status</label>
+      <select id="biller-status">
+        <option value="Active" selected>Active</option>
+        <option value="Archived">Archived</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button id="btn-cancel-biller" class="secondary-button">Cancel</button>
+      <button id="btn-save-biller" class="primary-button">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- 👁️ View Profile Slide-Up Modal -->
+<div id="biller-profile-modal" class="slideup-modal">
+  <div class="modal-header">
+    <h2>Biller Profile</h2>
+    <span class="close-button">✖</span>
+  </div>
+  <div class="modal-content"></div>
+</div>

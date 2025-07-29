@@ -1,0 +1,65 @@
+<div class="module-container">
+  <h1>📘 Rewards Ledger</h1>
+
+  <!-- 🔍 Filter Controls -->
+  <div class="table-controls">
+    <select id="filter-customer" class="short-input">
+      <option value="">All Customers</option>
+      <!-- Populated via JS -->
+    </select>
+
+    <input type="date" id="filter-start" class="short-input" />
+    <input type="date" id="filter-end" class="short-input" />
+
+    <select id="filter-type" class="short-input">
+      <option value="">All Types</option>
+      <option value="Earned">Earned</option>
+      <option value="Redeemed">Redeemed</option>
+    </select>
+
+    <button id="btn-reset-filters" class="short-button">🔄 Reset Filters</button>
+    <button id="btn-export-ledger" class="short-button">📤 Export</button>
+  </div>
+
+  <!-- 📋 Ledger Table -->
+  <div class="table-container">
+    <table class="inventory-table">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Date</th>
+          <th>Customer ID</th>
+          <th>Customer Name</th>
+          <th>Type</th>
+          <th>Points</th>
+          <th>Equivalent Value</th>
+          <th>Conversion Rate</th>
+          <th>Order Number</th>
+          <th>Notes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="ledger-table">
+        <!-- Rows injected by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 📄 Pagination -->
+  <div id="ledger-pagination" class="pagination-controls"></div>
+</div>
+
+<!-- 📝 Modal: Edit Notes -->
+<div id="ledger-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>📝 Edit Notes</h2>
+    <input type="hidden" id="modal-transaction-id" />
+    <label>Notes (max 100 characters)
+      <textarea id="modal-notes" maxlength="100" rows="4"></textarea>
+    </label>
+    <div class="modal-actions">
+      <button id="btn-save-notes" class="short-button">💾 Save</button>
+      <button id="btn-cancel-notes" class="short-button">❌ Cancel</button>
+    </div>
+  </div>
+</div>
